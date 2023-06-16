@@ -1,3 +1,34 @@
+# User ignore
+*.sql
+.env.db
+*.parquet
+test.*
+temp.*
+
+configs/*oracle_storage_config.prod
+configs/*private_key.pem
+parallel.py
+
+logs/*
+airflow.cfg
+webserver_config.py
+requirement.txt
+resources/*/*
+note.txt
+
+statsd_mapping.conf
+get_resource.ipynb
+
+airflow.db
+
+#VScode
+.vscode 
+
+# +----------------------------+
+# |    Keep .gitkeep files     |
+# +----------------------------+
+!/**/.gitkeep
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
