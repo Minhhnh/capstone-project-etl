@@ -111,11 +111,11 @@ def build_dataset():
                 prompt_file.flush()
 
     @task(multiple_outputs=False)
-    def upload_to_s3(generate_prompts_path: str):
-        storage_s3.s3_upload_directory("temp_resources")
+    def upload_to_s3(resources_directory: str):
+        storage_s3.s3_upload_directory(resources_directory)
 
     transform(data_retrieval(generate_prompts()))
-    upload_to_s3()
+    upload_to_s3("resources/dataset")
 
 
 dag = build_dataset()
