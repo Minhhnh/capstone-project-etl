@@ -12,6 +12,7 @@ import dask.dataframe as dd
 import numpy as np
 from airflow.decorators import dag, task
 from PIL import Image
+from modules.cloud.cloud_storage import storage_s3
 
 sys.path.append(os.getcwd())
 
@@ -111,10 +112,11 @@ def build_dataset():
                 prompt_file.flush()
 
     @task(multiple_outputs=False)
-    def upload_file_to_s3(generate_prompts_path: str):
-        pass
+    def upload_to_s3(generate_prompts_path: str):
+        storage_s3.s3_upload_directory("temp_resources")
 
     transform(data_retrieval(generate_prompts()))
+    upload_to_s3()
 
 
 dag = build_dataset()

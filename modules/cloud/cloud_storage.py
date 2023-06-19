@@ -27,7 +27,10 @@ class StorageS3:
         for root, dirs, files in os.walk(path):
             for file in files:
                 self._s3_client.upload_file(
-                    os.path.join(root, file), CloudStorage.BUCKET, file
+                    os.path.join(root, file),
+                    CloudStorage.BUCKET,
+                    file,
+                    os.path.join(root, file),
                 )
 
     def s3_upload_large_file(self, session, *, key, filename):

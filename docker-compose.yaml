@@ -44,8 +44,7 @@ x-airflow-common: &airflow-common
     AIRFLOW__CORE__DAGBAG_IMPORT_TIMEOUT: 300
     AIRFLOW__SCHEDULER__MIN_FILE_PROCESS_INTERVAL: 10
   volumes:
-    - ./database:/opt/airflow/database
-    - ./configs:/opt/airflow/configs:ro
+    - ./modules:/opt/airflow/modules
     - ./resources:/opt/airflow/resources
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
