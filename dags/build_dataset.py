@@ -12,10 +12,9 @@ import dask.dataframe as dd
 import numpy as np
 from airflow.decorators import dag, task
 from PIL import Image
-from modules.cloud.cloud_storage import storage_s3
 
 sys.path.append(os.getcwd())
-
+from modules.cloud.cloud_storage import storage_s3
 from modules.components.caption_images import CaptionImagesComponent
 from modules.components.download_images import DownloadImagesComponent
 from modules.components.generate_prompts import GeneratePromptsComponent
