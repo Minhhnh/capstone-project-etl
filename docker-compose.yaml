@@ -44,7 +44,7 @@ x-airflow-common: &airflow-common
     AIRFLOW__CORE__DAGBAG_IMPORT_TIMEOUT: 300
     AIRFLOW__SCHEDULER__MIN_FILE_PROCESS_INTERVAL: 10
 
-    NVIDIA_VISIBLE_DEVICES: all
+    NVIDIA_VISIBLE_DEVICES: 1
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - ./modules:/opt/airflow/modules
@@ -53,6 +53,12 @@ x-airflow-common: &airflow-common
     - ./logs:/opt/airflow/logs
     - ./plugins:/opt/airflow/plugins
   runtime: nvidia
+  deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
   user: "${AIRFLOW_UID:-50000}:${AIRFLOW_GID:-50000}"
   depends_on: &airflow-common-depends-on
     redis:
