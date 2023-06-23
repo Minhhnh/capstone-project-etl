@@ -89,7 +89,7 @@ class CaptionImagesComponent:
 
     def __init__(self, model_id: str = "Salesforce/blip-image-captioning-base",) -> None:
         device = "cuda:0" if torch.cuda.is_available() else "cpu"
-        print(f"Device: {device}")
+        print(f"Device caption image component: {device}")
 
         self.device = device
         self.processor = BlipProcessor.from_pretrained(model_id)

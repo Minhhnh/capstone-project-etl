@@ -119,7 +119,7 @@ class SegmentImagesComponent:
         Initialize the component.
         """
         device = "cuda:0" if torch.cuda.is_available() else "cpu"
-        print(f"Device: {device}")
+        print(f"Device segment image component: {device}")
 
         self.device = device
         self.processor = SegformerImageProcessor.from_pretrained(model_id)
