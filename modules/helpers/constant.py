@@ -6,7 +6,7 @@ class DagConstant:
     RETRIEVAL_PATH = "resources/retrieval_df.csv"
     BASE_SRC_PATH = "resources/dataset/source/{0}.png"
     BASE_DST_PATH = "resources/dataset/target/{0}.png"
-    PROMPT_FILE_PATH = "resources/prompt.json"
+    PROMPT_FILE_PATH = "resources/dataset/prompt.json"
 
 
 class CloudStorage:

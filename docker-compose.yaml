@@ -43,8 +43,7 @@ x-airflow-common: &airflow-common
     AIRFLOW__CORE__DEFAULT_TIMEZONE: "Asia/Saigon"
     AIRFLOW__CORE__DAGBAG_IMPORT_TIMEOUT: 300
     AIRFLOW__SCHEDULER__MIN_FILE_PROCESS_INTERVAL: 10
-
-    NVIDIA_VISIBLE_DEVICES: all
+    
     CUDA_VISIBLE_DEVICES: 0
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock

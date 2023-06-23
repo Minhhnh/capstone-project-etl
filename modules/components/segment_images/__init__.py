@@ -79,8 +79,7 @@ def segment_image_batch(
     """Embed a batch of images"""
     input_batch = torch.cat(image_batch.tolist())
     output_batch = model(input_batch)
-    post_processed_batch = processor.post_process_semantic_segmentation(
-        output_batch)
+    post_processed_batch = processor.post_process_semantic_segmentation(output_batch)
     segmentations_batch = [
         convert_to_rgb(seg.cpu().numpy()) for seg in post_processed_batch
     ]
@@ -119,13 +118,14 @@ class SegmentImagesComponent:
         """
         Initialize the component.
         """
-        device = "cuda:1" if torch.cuda.is_available() else "cpu"
+        device = "cuda:0" if torch.cuda.is_available() else "cpu"
         print(f"Device: {device}")
 
         self.device = device
         self.processor = SegformerImageProcessor.from_pretrained(model_id)
-        self.model = AutoModelForSemanticSegmentation.from_pretrained(
-            model_id).to(device)
+        self.model = AutoModelForSemanticSegmentation.from_pretrained(model_id).to(
+            device
+        )
 
     def transform(
         self,
