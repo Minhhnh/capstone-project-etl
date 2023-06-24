@@ -45,6 +45,8 @@ x-airflow-common: &airflow-common
     AIRFLOW__SCHEDULER__MIN_FILE_PROCESS_INTERVAL: 10
     
     CUDA_VISIBLE_DEVICES: 0
+    NVIDIA_VISIBLE_DEVICES: all
+    NVIDIA_DRIVER_CAPABILITIES: all
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - ./modules:/opt/airflow/modules
